@@ -1,10 +1,10 @@
 import ShopCard from '../ShopCard/ShopCard'
 import { useState, useEffect } from "react";
 import { getCategories, getItems } from "../../utils/utils"
+import {Link} from 'react-router-dom'
 
-const ShopList = () => {
+const ShopList = ({categories, setCategories}) => {
     const [items, setItems] = useState([]);
-    const [categories, setCategories] = useState([]);
     const [queries, setQueries] = useState(undefined);
   
     useEffect(() => {
@@ -33,6 +33,8 @@ const ShopList = () => {
     
     return (
         <>
+        <h2>Shop</h2>
+        <Link className='link' to="/items/add-item">Add a new item</Link>
             <select onChange={handleChange}>
                 <option key="All">All</option>
                 {categories.map((category) => (

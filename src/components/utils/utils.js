@@ -19,3 +19,15 @@ export const getCategories = () => {
     return data.categories;
   });
 };
+
+export const postItem = (item) => {
+  return marketplaceApi.post('/api/items', item).then(({data}) => {
+    return data.item;
+  })
+}
+
+export const getItem = (item_id) => {
+  return marketplaceApi.get(`/api/items/${item_id}`).then(({data}) => {
+    return data.item;
+  })
+}
