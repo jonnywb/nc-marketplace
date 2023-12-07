@@ -10,7 +10,6 @@ export const getItems = (queries) => {
   };
 
   return marketplaceApi.get("/api/items", params).then(({ data }) => {
-    console.log(data.items);
     return data.items;
   });
 };

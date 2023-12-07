@@ -2,13 +2,16 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import Shop from "./components/Shop/Shop";
 import Account from "./components/Account/Account";
+import {Routes, Route} from 'react-router-dom'
 
 function App() {
   return (
     <>
       <Header />
-      <Shop />
-      <Account />
+      <Routes>
+        <Route path="*" element={<Shop />} />
+        <Route path="/account" element={<Account />} />
+      </Routes>
     </>
   );
 }
