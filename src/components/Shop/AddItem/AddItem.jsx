@@ -1,5 +1,6 @@
 import { postItem } from "../../utils/utils";
 import { useNavigate } from "react-router-dom";
+import "./addItem.css";
 
 const AddItem = ({ categories }) => {
   const redirect = useNavigate();
@@ -21,35 +22,35 @@ const AddItem = ({ categories }) => {
   };
 
   return (
-    <form method="POST" onSubmit={handleSubmit}>
-      <h3>Post new item for sale</h3>
-      <label>
-        Name: <input type="text" name="item_name" placeholder="Enter name of item" required />
-      </label>
-      <label>
-        Image url: <input type="url" name="img_url" placeholder="Enter image url" required />
-      </label>
-      <label>
-        Price: <input type="number" name="price" placeholder="Enter price" required />
-      </label>
-      <label>
-        Description: <input type="text" name="description" placeholder="Enter description" />
-      </label>
-      <label>
-        Category:
-        <select name="category_name">
-          {categories.map((category) => {
-            const { category_name } = category;
-            return (
-              <option value={category_name} key={category_name}>
-                {category_name}
-              </option>
-            );
-          })}
-        </select>
-      </label>
-      <button>Submit</button>
-    </form>
+    <section id="add-item">
+      <div className="section-header">
+        <h2>Post new item for sale</h2>
+      </div>
+      <form method="POST" onSubmit={handleSubmit}>
+        <div className="form-div">
+          <label>Name:</label>
+          <input id="add_item_name" type="text" name="item_name" placeholder="Enter name of item" required />
+          <label>Image url:</label>
+          <input id="add_item_url" type="url" name="img_url" placeholder="Enter image url" required />
+          <label>Price:</label>
+          <input type="number" name="price" placeholder="Enter price" required />
+          <label>Description:</label>
+          <input type="text" name="description" placeholder="Enter description" />
+          <label>Category:</label>
+          <select name="category_name">
+            {categories.map((category) => {
+              const { category_name } = category;
+              return (
+                <option value={category_name} key={category_name}>
+                  {category_name}
+                </option>
+              );
+            })}
+          </select>
+        </div>
+        <button className="form-submit">Submit</button>
+      </form>
+    </section>
   );
 };
 

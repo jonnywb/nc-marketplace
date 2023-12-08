@@ -18,14 +18,12 @@ const Shop = () => {
   }, []);
 
   return (
-    <section id="shop">
-      <Routes>
-        <Route path="/" element={<ShopList categories={categories} setCategories={setCategories} />} />
-        <Route path="/items/:item_id" element={<Item basket={basket} />} />
-        <Route path="/basket" element={<Basket basket={basket} setBasket={setBasket} />} />
-        <Route path="/items/add-item" element={<AddItem categories={categories} />} />
-      </Routes>
-    </section>
+    <Routes>
+      <Route path="/" element={<ShopList categories={categories} setCategories={setCategories} />} />
+      <Route path="/items/:item_id" element={<Item basket={basket} />} />
+      <Route path="/basket" element={<Basket basket={basket} setBasket={setBasket} />} />
+      <Route path="/items/add-item" element={<AddItem categories={categories} />} />
+    </Routes>
   );
 };
 
