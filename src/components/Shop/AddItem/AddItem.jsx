@@ -16,7 +16,6 @@ const AddItem = ({ categories }) => {
     };
 
     postItem(newItem).then((newItem) => {
-      console.log(newItem);
       redirect(`/items/${newItem.item_id}`);
     });
   };

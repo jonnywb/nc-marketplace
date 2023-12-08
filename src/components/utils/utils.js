@@ -31,3 +31,26 @@ export const getItem = (item_id) => {
     return data.item;
   });
 };
+
+export const getUserByUsername = (username) => {
+  return marketplaceApi.get(`/api/users/${username}`).then(({data}) => {
+    return data.user
+  })
+}
+
+export const postToBasket = (username, body) => {
+  return marketplaceApi.post(`/api/users/${username}/basket`, body).then(({data}) => {
+    return data.item
+  })
+}
+
+export const getBasketItems = (username) => {
+  return marketplaceApi.get(`/api/users/${username}/basket`).then(({data}) => {
+    return data.items
+  })
+}
+
+export const deleteFromBasket = (username, item_id) => {
+  return marketplaceApi.delete(`/api/users/${username}/basket/${item_id}`).then(() => {
+  })
+}

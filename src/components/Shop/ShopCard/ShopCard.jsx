@@ -5,7 +5,7 @@ const ShopCard = ({ item }) => {
   return (
     <li>
       <h2>{item_name}</h2>
-      <div class="img-div">
+      <div className="img-div">
         <img src={img_url} />
       </div>
       <p>{description}</p>
