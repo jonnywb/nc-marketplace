@@ -1,0 +1,62 @@
+#shop-list {
+  background-color: #f8f8f8;
+  border-radius: 0.4rem;
+}
+
+.section-header {
+  background-color: rgba(13, 163, 163, 0.1);
+  padding: 0.2rem;
+  border-bottom: 1px solid grey;
+  margin-bottom: 1rem;
+  height: 11vh;
+}
+
+h2 {
+  color: #444;
+  text-align: center;
+  font-weight: 600;
+}
+
+.list-filters {
+  padding: 0.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.list-filters a {
+  text-decoration: none;
+  text-align: center;
+  border-radius: 0.5rem;
+  height: 2.7rem;
+  width: 10rem;
+  padding: 0.6rem;
+  background-color: rgb(255, 97, 166);
+  box-shadow: 0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.4);
+  transition: 0.5s;
+  color: rgb(24, 24, 24);
+}
+
+.list-filters a:hover {
+  background-color: rgb(254, 135, 187);
+  box-shadow: 0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 1);
+  transition: 0.5s;
+}
+
+.item-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: 70vh;
+}
+
+#page-nums {
+  text-align: center;
+  padding: 1rem;
+}
+
+#page-nums a {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}

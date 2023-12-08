@@ -5,15 +5,16 @@ import Account from "./components/Account/Account";
 import { Routes, Route } from "react-router-dom";
 import { UserProvider } from "./contexts/UserContext";
 
-
 function App() {
   return (
     <UserProvider>
       <Header />
-      <Routes>
-        <Route path="*" element={<Shop />} />
-        <Route path="/account" element={<Account />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="*" element={<Shop />} />
+          <Route path="/account" element={<Account />} />
+        </Routes>
+      </main>
     </UserProvider>
   );
 }
