@@ -1,20 +1,30 @@
 import { useContext, useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { getUserByUsername } from "../utils/utils";
-
+import styles from "./Account.module.css";
+import { outerAccount, account, orders, accountHeader } from "../styles/section.module.css";
+import { message, h2 } from "../styles/Typography.module.css";
+import Orders from "./Orders/Orders";
+import Info from "./Info/Info";
+import { logout } from "../styles/Button.module.css";
+import { useNavigate } from "react-router-dom";
+//test
 const Account = () => {
   const { user, setUser } = useContext(UserContext);
   const [usernameInput, setUsernameInput] = useState("");
   const [isError, setIsError] = useState(false);
+  const redirect = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     getUserByUsername(usernameInput)
       .then((user) => {
         setUser(user);
+        localStorage.setItem("username", user.username);
       })
-      .catch(() => {
+      .catch((err) => {
         setIsError(true);
+        console.log(err);
       });
     setUsernameInput("");
   };
@@ -22,11 +32,13 @@ const Account = () => {
   const handleChange = (event) => {
     setUsernameInput(event.target.value);
   };
+    setUsernameInput(event.target.value);
+  };
 
   if (isError) {
     return (
       <>
-        <p>Username not found</p>
+        <p className={message}>Username not found</p>
         <button
           onClick={() => {
             setIsError(false);
@@ -38,29 +50,48 @@ const Account = () => {
     );
   }
 
-  if (user.username) {
-    const { username, avatar_url, kudos, items_in_basket, items_ordered } = user;
+  if (user) {
     return (
       <>
-        <h2>Account</h2>
-        <h3>Hello {username}</h3>
-        <img style={{ width: "75px", height: "75px" }} src={avatar_url} alt="your avatar" />
-        <p>Kudos: {kudos}</p>
-        <p>Your basket: {items_in_basket}</p>
-        <p>Orders: {items_ordered}</p>
+        <section className={outerAccount}>
+          <div className={accountHeader}>
+            <h2 className={h2}>Account</h2>
+            <button
+              className={logout}
+              onClick={() => {
+                localStorage.setItem("username", "");
+                setUser();
+              }}
+            >
+              Log out
+            </button>
+          </div>
+          <div className={account}>
+            <Info user={user} />
+          </div>
+          <div className={orders}>
+            <Orders user={user} />
+          </div>
+        </section>
       </>
+    );
     );
   }
 
   return (
-    <section id="account">
-      <h2>Account</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Username:
-          <input name="username" value={usernameInput} onChange={handleChange} />
-        </label>
-        <button>Log in</button>
+    <section className={styles.login}>
+      <h2 className={h2}>Log In</h2>
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <label className={styles.label}>Username</label>
+        <input
+          className={styles.input}
+          name="username"
+          value={usernameInput}
+          onChange={handleChange}
+          placeholder="username..."
+        />
+
+        <button className={styles.button}>Log me in</button>
       </form>
     </section>
   );

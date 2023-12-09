@@ -1,0 +1,40 @@
+.filterBar {
+  padding: 0.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+}
+
+.filterBar select {
+  margin-left: 5px;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: 70vh;
+}
+
+@media screen and (max-width: 880px) {
+  .list {
+    height: auto;
+  }
+
+  .filterBar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filterBar label {
+    margin: 1rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .list {
+    padding: 0;
+  }
+}

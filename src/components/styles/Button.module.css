@@ -1,0 +1,44 @@
+.primary {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: #820a92;
+  box-shadow: 0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.4);
+  transition: 0.5s;
+  color: #f3f3f3;
+  text-wrap: pretty;
+  white-space: nowrap;
+}
+
+.primary:hover {
+  background-color: #a31668;
+  box-shadow: 0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 1);
+  transition: 0.5s;
+}
+
+.secondary {
+  composes: primary;
+  background-color: #f8f8f8;
+  border: 2px solid #820a92;
+  color: #820a92;
+  padding: 0.5rem;
+  width: 80%;
+  margin: 0 auto;
+  box-shadow: none;
+}
+
+.secondary:hover {
+  background-color: #f8f8f8;
+  box-shadow: inset 0rem 0rem 2rem 1rem #a31668;
+  color: white;
+}
+
+.checkout {
+  composes: primary;
+  width: 20%;
+}
+
+.logout {
+  composes: checkout;
+  margin: 0 auto;
+}

@@ -1,0 +1,69 @@
+.outerSection {
+  background-color: #f8f8f8;
+  border-radius: 0.4rem;
+  min-height: 50vh;
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(13, 163, 163, 0.1);
+  padding: 1rem 2rem 0 2rem;
+  border-bottom: 1px solid grey;
+  margin-bottom: 1rem;
+  height: 12vh;
+}
+
+.sectionFooter {
+  border-top: 1px solid grey;
+  background-color: rgba(13, 163, 163, 0.1);
+  padding: 1rem 2rem;
+  text-align: right;
+}
+
+.outerAccount {
+  composes: outerSection;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr 1fr;
+}
+
+.accountHeader {
+  composes: sectionHeader;
+  grid-area: 1 / 1 / 2 / 3;
+  text-align: center;
+}
+
+.account {
+  text-align: center;
+  grid-area: 2 / 1 / 4/ 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.orders {
+  margin: 1rem;
+  text-align: center;
+  grid-area: 2 / 2 / 4/ 3;
+  border: 1px solid black;
+}
+
+@media screen and (max-width: 900px) {
+  .sectionHeader {
+    align-items: center;
+    height: auto;
+  }
+
+  .outerSection {
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .sectionHeader {
+    margin-bottom: 0;
+  }
+}

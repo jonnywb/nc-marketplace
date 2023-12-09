@@ -33,24 +33,35 @@ export const getItem = (item_id) => {
 };
 
 export const getUserByUsername = (username) => {
-  return marketplaceApi.get(`/api/users/${username}`).then(({data}) => {
-    return data.user
-  })
-}
+  return marketplaceApi.get(`/api/users/${username}`).then(({ data }) => {
+    return data.user;
+  });
+};
 
 export const postToBasket = (username, body) => {
-  return marketplaceApi.post(`/api/users/${username}/basket`, body).then(({data}) => {
-    return data.item
-  })
-}
+  return marketplaceApi.post(`/api/users/${username}/basket`, body).then(({ data }) => {
+    return data.item;
+  });
+};
 
 export const getBasketItems = (username) => {
-  return marketplaceApi.get(`/api/users/${username}/basket`).then(({data}) => {
-    return data.items
-  })
-}
+  return marketplaceApi.get(`/api/users/${username}/basket`).then(({ data }) => {
+    return data.items;
+  });
+};
 
 export const deleteFromBasket = (username, item_id) => {
-  return marketplaceApi.delete(`/api/users/${username}/basket/${item_id}`).then(() => {
-  })
-}
+  return marketplaceApi.delete(`/api/users/${username}/basket/${item_id}`).then(() => {});
+};
+
+export const getOrders = async (username) => {
+  const { data } = await marketplaceApi.get(`/api/users/${username}/orders`);
+
+  return data.items;
+};
+
+export const postToOrders = async (username, item_id) => {
+  const { data } = await marketplaceApi.post(`/api/users/${username}/orders`, { item_id });
+
+  return data.item;
+};

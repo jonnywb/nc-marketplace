@@ -1,0 +1,38 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: #f8f8f8;
+  margin: 0 auto;
+  text-align: center;
+  width: 40vw;
+  max-width: 325px;
+  height: 30vh;
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0.3rem 10px 20px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  top: 7.5vh;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-weight: 600;
+}
+
+.input {
+  margin: 0 auto;
+  height: 3rem;
+  width: 70%;
+}
+
+.button {
+  border-radius: 0.7rem;
+  margin: 2vh auto;
+  width: 40%;
+}
