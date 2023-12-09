@@ -2,7 +2,10 @@ import { useContext, useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { getUserByUsername } from "../utils/utils";
 import styles from "./Account.module.css";
-import { h2, message } from "../styles/Typography.module.css";
+import { outerAccount, account, orders, accountHeader } from "../styles/section.module.css";
+import { message, h2 } from "../styles/Typography.module.css";
+import Orders from "./Orders/Orders";
+import Info from "./Info/Info";
 
 const Account = () => {
   const { user, setUser } = useContext(UserContext);
@@ -14,9 +17,11 @@ const Account = () => {
     getUserByUsername(usernameInput)
       .then((user) => {
         setUser(user);
+        localStorage.setItem("username", user.username);
       })
-      .catch(() => {
+      .catch((err) => {
         setIsError(true);
+        console.log(err);
       });
     setUsernameInput("");
   };
@@ -28,7 +33,7 @@ const Account = () => {
   if (isError) {
     return (
       <>
-        <p className="err-msg">Username not found</p>
+        <p className={message}>Username not found</p>
         <button
           onClick={() => {
             setIsError(false);
@@ -41,22 +46,26 @@ const Account = () => {
   }
 
   if (user) {
-    const { username, avatar_url, kudos, items_in_basket, items_ordered } = user;
     return (
-      <section className={styles.account}>
-        <h2>Account</h2>
-        <h3>Welcome, {username}!</h3>
-        <img className={styles.profileImg} src={avatar_url} alt="your avatar" />
-        <p>Kudos: {kudos}</p>
-        <p>Your basket: {items_in_basket}</p>
-        <p>Orders: {items_ordered}</p>
-      </section>
+      <>
+        <section className={outerAccount}>
+          <div className={accountHeader}>
+            <h2 className={h2}>Account</h2>
+          </div>
+          <div className={account}>
+            <Info user={user} />
+          </div>
+          <div className={orders}>
+            <Orders user={user} />
+          </div>
+        </section>
+      </>
     );
   }
 
   return (
     <section className={styles.login}>
-      <h2>Account</h2>
+      <h2 className={h2}>Log In</h2>
       <form className={styles.form} onSubmit={handleSubmit}>
         <label className={styles.label}>Username</label>
         <input

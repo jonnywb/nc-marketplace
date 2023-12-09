@@ -11,7 +11,8 @@
 }
 
 .nav:hover {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: #b51d51;
+  color: white;
   transition: 1s;
 }
 
@@ -29,5 +30,5 @@
 .pageNumActive {
   color: white;
   composes: pageNum;
-  background-color: #cc2534;
+  background-color: #b51d51;
 }

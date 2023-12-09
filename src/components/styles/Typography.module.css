@@ -1,13 +1,21 @@
 .h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 500;
-  color: rgb(45, 45, 45);
+  color: #222222;
 }
 
 .h2 {
   color: #444;
   text-align: center;
   font-weight: 600;
+}
+
+.h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: left;
+  grid-area: 1/1/2/3;
+  white-space: nowrap;
 }
 
 .message {

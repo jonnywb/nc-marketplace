@@ -9,7 +9,6 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 3.5fr 1.5fr 0.75fr;
   grid-row-gap: 5px;
-  transition: 0.3s;
 }
 
 .item:hover {

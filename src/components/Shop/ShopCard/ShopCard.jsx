@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import styles from "./ShopCard.module.css";
-import { primary } from "../../styles/Button.module.css";
+import { primary, secondary } from "../../styles/Button.module.css";
 
 const ShopCard = ({ item, remove }) => {
   const { item_name, img_url, description, price, item_id } = item;
@@ -10,7 +10,7 @@ const ShopCard = ({ item, remove }) => {
   const renderButton = () => {
     if (remove) {
       return (
-        <button className={primary} item_id={item_id} onClick={remove}>
+        <button className={secondary} item_id={item_id} onClick={remove}>
           Remove
         </button>
       );
@@ -18,7 +18,7 @@ const ShopCard = ({ item, remove }) => {
 
     return (
       <button
-        className={primary}
+        className={secondary}
         onClick={() => {
           redirect(`/items/${item_id}`);
         }}

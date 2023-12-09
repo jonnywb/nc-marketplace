@@ -38,7 +38,7 @@ const Item = ({ basket }) => {
 
   const { item_name, img_url, description, price, category_name } = currItem;
 
-  if (!currItem.name) return <p className={message}>Invalid Item ID</p>;
+  if (!currItem.item_name) return <p className={message}>Invalid Item ID</p>;
 
   return (
     <section id="item" className={outerSection}>

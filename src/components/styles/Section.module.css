@@ -15,6 +15,42 @@
   height: 12vh;
 }
 
+.sectionFooter {
+  border-top: 1px solid grey;
+  background-color: rgba(13, 163, 163, 0.1);
+  padding: 1rem 2rem;
+  text-align: right;
+}
+
+.outerAccount {
+  composes: outerSection;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr 1fr;
+}
+
+.accountHeader {
+  composes: sectionHeader;
+  grid-area: 1 / 1 / 2 / 3;
+  text-align: center;
+}
+
+.account {
+  text-align: center;
+  grid-area: 2 / 1 / 4/ 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.orders {
+  margin: 1rem;
+  text-align: center;
+  grid-area: 2 / 2 / 4/ 3;
+  border: 1px solid black;
+}
+
 @media screen and (max-width: 900px) {
   .sectionHeader {
     align-items: center;

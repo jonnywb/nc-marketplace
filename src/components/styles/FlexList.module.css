@@ -6,6 +6,10 @@
   width: 100%;
 }
 
+.filterBar select {
+  margin-left: 5px;
+}
+
 .list {
   list-style: none;
   display: flex;

@@ -1,0 +1,25 @@
+.orders {
+  width: 100%;
+}
+
+.orders thead {
+  background-color: #d7e0e1;
+  box-shadow: 0 0.1rem rgb(107, 107, 107);
+}
+
+.orders tr {
+  height: 5vh;
+}
+
+.orders td:first-child {
+  width: 65%;
+}
+
+.orders tr:nth-child(even) {
+  background-color: #e4eff0;
+}
+
+.ordersH3 {
+  text-align: center;
+  padding: 1.8rem 1rem 1rem 1rem;
+}

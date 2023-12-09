@@ -1,10 +1,7 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { nav } from "../../styles/Link.module.css";
 
 const Nav = () => {
-  const [activeNav, setActiveNav] = useState();
-
   return (
     <nav>
       <Link className={nav} to="/">
