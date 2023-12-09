@@ -32,6 +32,8 @@ const Account = () => {
   const handleChange = (event) => {
     setUsernameInput(event.target.value);
   };
+    setUsernameInput(event.target.value);
+  };
 
   if (isError) {
     return (
@@ -72,6 +74,7 @@ const Account = () => {
           </div>
         </section>
       </>
+    );
     );
   }
 
