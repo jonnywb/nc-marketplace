@@ -29,14 +29,14 @@ const ShopCard = ({ item, remove }) => {
   };
 
   return (
-    <li
-      className={styles.item}
-      onClick={() => {
-        redirect(`/items/${item_id}`);
-      }}
-    >
+    <li className={styles.item}>
       <h3 className={styles.head}>{item_name}</h3>
-      <div className={styles.imgDiv}>
+      <div
+        onClick={() => {
+          redirect(`/items/${item_id}`);
+        }}
+        className={styles.imgDiv}
+      >
         <img className={styles.img} src={img_url} />
       </div>
       <p className={styles.desc}>{description}</p>

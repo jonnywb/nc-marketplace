@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  width: 100%;
 }
 
 .list {
@@ -11,4 +12,25 @@
   flex-wrap: wrap;
   justify-content: space-around;
   height: 70vh;
+}
+
+@media screen and (max-width: 880px) {
+  .list {
+    height: auto;
+  }
+
+  .filterBar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filterBar label {
+    margin: 1rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .list {
+    padding: 0;
+  }
 }

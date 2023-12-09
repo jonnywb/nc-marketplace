@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { getUserByUsername } from "../utils/utils";
 import styles from "./Account.module.css";
+import { h2, message } from "../styles/Typography.module.css";
 
 const Account = () => {
   const { user, setUser } = useContext(UserContext);
@@ -45,7 +46,7 @@ const Account = () => {
       <section className={styles.account}>
         <h2>Account</h2>
         <h3>Welcome, {username}!</h3>
-        <img src={avatar_url} alt="your avatar" />
+        <img className={styles.profileImg} src={avatar_url} alt="your avatar" />
         <p>Kudos: {kudos}</p>
         <p>Your basket: {items_in_basket}</p>
         <p>Orders: {items_ordered}</p>

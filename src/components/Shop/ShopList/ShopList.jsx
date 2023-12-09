@@ -4,13 +4,14 @@ import { getItems } from "../../utils/utils";
 import { h2 } from "../../styles/Typography.module.css";
 import { outerSection, sectionHeader } from "../../styles/Section.module.css";
 import { pageNumList } from "./shopList.module.css";
-import { pageNum as numCss } from "../../styles/Link.module.css";
+import { pageNum as numCss, pageNumActive } from "../../styles/Link.module.css";
 import { filterBar, list } from "../../styles/FlexList.module.css";
 import { primary } from "../../styles/Button.module.css";
 import { useNavigate } from "react-router-dom";
 
 const ShopList = ({ categories, setCategories }) => {
   const [items, setItems] = useState([]);
+  const [activePage, setActivePage] = useState(0);
   const [pageNums, setPageNums] = useState([1]);
   const [queries, setQueries] = useState({
     p: 1,
@@ -22,7 +23,6 @@ const ShopList = ({ categories, setCategories }) => {
 
   const sortByOptions = {
     item_name: "Item Name",
-    item_id: "Item ID",
     price: "Price",
     category_name: "Category Name",
   };
@@ -75,6 +75,8 @@ const ShopList = ({ categories, setCategories }) => {
 
   const handlePageClick = (event) => {
     const p = event.target.getAttribute("index");
+    setActivePage(+p);
+
     setQueries((currQueries) => {
       return { ...currQueries, p };
     });
@@ -85,14 +87,6 @@ const ShopList = ({ categories, setCategories }) => {
       <div className={sectionHeader}>
         <h2 className={h2}>Shop</h2>
         <div className={filterBar}>
-          <button
-            className={primary}
-            onClick={() => {
-              redirect("/items/add-item");
-            }}
-          >
-            Add a new item
-          </button>
           <label>
             Filter by Category
             <select onChange={handleCategoryChange}>
@@ -123,6 +117,14 @@ const ShopList = ({ categories, setCategories }) => {
               <option value="desc">Descending</option>
             </select>
           </label>
+          <button
+            className={primary}
+            onClick={() => {
+              redirect("/items/add-item");
+            }}
+          >
+            Add a new item
+          </button>
         </div>
       </div>
 
@@ -135,7 +137,12 @@ const ShopList = ({ categories, setCategories }) => {
         <nav>
           {pageNums.map((pageNum, i) => {
             return (
-              <a className={numCss} index={i + 1} key={i} onClick={handlePageClick}>
+              <a
+                className={i + 1 === activePage ? pageNumActive : numCss}
+                index={i + 1}
+                key={i}
+                onClick={handlePageClick}
+              >
                 {pageNum}
               </a>
             );

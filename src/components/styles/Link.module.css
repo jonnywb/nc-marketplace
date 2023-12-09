@@ -19,4 +19,15 @@
   composes: nav;
   padding: 0.5rem 1rem;
   cursor: pointer;
+  transition: 0.5s;
+}
+
+.pageNum:hover {
+  transition: 0.5s;
+}
+
+.pageNumActive {
+  color: white;
+  composes: pageNum;
+  background-color: #cc2534;
 }

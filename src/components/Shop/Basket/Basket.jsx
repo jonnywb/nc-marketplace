@@ -2,7 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../../contexts/UserContext";
 import { deleteFromBasket, getBasketItems } from "../../utils/utils";
 import ShopCard from "../ShopCard/ShopCard";
-// import "./basket.css";
+import { total } from "./Basket.module.css";
+import { outerSection, sectionHeader } from "../../styles/Section.module.css";
+import { list } from "../../styles/FlexList.module.css";
 
 const Basket = ({ basket, setBasket }) => {
   const { user } = useContext(UserContext);
@@ -28,10 +30,10 @@ const Basket = ({ basket, setBasket }) => {
 
   if (basket.length) {
     return (
-      <section id="basket">
-        <div className="section-header">
+      <section className={outerSection}>
+        <div className={sectionHeader}>
           <h2>Basket</h2>
-          <p id="total">
+          <p className={total}>
             Total: £
             {(
               basket.reduce((acc, curr) => {
@@ -40,7 +42,7 @@ const Basket = ({ basket, setBasket }) => {
             ).toFixed(2)}
           </p>
         </div>
-        <ul className="item-list">
+        <ul className={list}>
           {basket.map((item) => {
             const { item_id } = item;
             return <ShopCard key={item_id} item={item} remove={handleRemove} />;
@@ -50,8 +52,8 @@ const Basket = ({ basket, setBasket }) => {
     );
   } else {
     return (
-      <section id="basket">
-        <div className="section-header">
+      <section className={outerSection}>
+        <div className={sectionHeader}>
           <h2>Basket</h2>
         </div>
         <ul className="item-list">

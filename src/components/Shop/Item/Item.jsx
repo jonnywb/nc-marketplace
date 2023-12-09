@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../../../contexts/UserContext";
 import { outerSection, sectionHeader } from "../../styles/Section.module.css";
-import { h2 } from "../../styles/Typography.module.css";
+import { h2, message } from "../../styles/Typography.module.css";
 import styles from "./Item.module.css";
 
 const Item = ({ basket }) => {
@@ -37,10 +37,13 @@ const Item = ({ basket }) => {
   };
 
   const { item_name, img_url, description, price, category_name } = currItem;
+
+  if (!currItem.name) return <p className={message}>Invalid Item ID</p>;
+
   return (
     <section id="item" className={outerSection}>
       <div className={sectionHeader}>
-        <h2 className={h2}>Item</h2>
+        <h2 className={h2}>View Item</h2>
       </div>
       <div className={styles.lgGrid}>
         <h3 className={styles.head}>{item_name}</h3>
@@ -52,6 +55,7 @@ const Item = ({ basket }) => {
           <p className={styles.desc}>{description}</p>
           <p className={styles.price}>£{(price / 100).toFixed(2)}</p>
           {user && renderBasket()}
+          {!user && <p className={message}>Please log-in to make a purchase.</p>}
         </div>
       </div>
     </section>

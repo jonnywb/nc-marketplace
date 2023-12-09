@@ -2,28 +2,31 @@
   padding: 1rem;
   border-radius: 0.2rem;
   border: 1px solid black;
-  width: 30%;
-  height: 30%;
+  width: 28%;
+  height: 32%;
   box-shadow: 0.2rem 0.2rem 0.4rem 0.1rem rgba(0, 0, 0, 0.1);
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 3.5fr 1.5fr 0.75fr;
   grid-row-gap: 5px;
   transition: 0.3s;
-  cursor: pointer;
 }
 
 .item:hover {
   transition: 0.3s;
-  box-shadow: 0.2rem 0.2rem 0.6rem 0.1rem rgba(0, 0, 0, 0.5);
+  box-shadow: 0.2rem 0.2rem 0.6rem 0.1rem rgba(0, 0, 0, 0.2);
 }
 
 .head {
+  font-size: 1.1rem;
+  font-weight: 600;
   text-align: left;
   grid-area: 1/1/2/3;
+  white-space: nowrap;
 }
 
 .imgDiv {
+  cursor: pointer;
   grid-area: 2/1/4/3;
   width: 100%;
   overflow: hidden;
@@ -31,7 +34,6 @@
 
 .img {
   object-fit: cover;
-  object-position: 25%;
   width: 100%;
   height: 100%;
 }
@@ -55,4 +57,17 @@
 .link {
   grid-area: 4/2/5/3;
   text-align: center;
+}
+
+@media screen and (max-width: 880px) {
+  .item {
+    width: 40%;
+    max-height: 200px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .item {
+    width: 100%;
+  }
 }

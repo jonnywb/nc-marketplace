@@ -40,6 +40,8 @@
 /*Account */
 
 .account {
+  position: relative;
+  top: 7.5vh;
   background-color: #f8f8f8;
   width: 50%;
   margin: 0 auto;
