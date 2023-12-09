@@ -37,3 +37,8 @@
   composes: primary;
   width: 20%;
 }
+
+.logout {
+  composes: checkout;
+  margin: 0 auto;
+}

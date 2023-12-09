@@ -6,11 +6,14 @@ import { outerAccount, account, orders, accountHeader } from "../styles/section.
 import { message, h2 } from "../styles/Typography.module.css";
 import Orders from "./Orders/Orders";
 import Info from "./Info/Info";
+import { logout } from "../styles/Button.module.css";
+import { useNavigate } from "react-router-dom";
 
 const Account = () => {
   const { user, setUser } = useContext(UserContext);
   const [usernameInput, setUsernameInput] = useState("");
   const [isError, setIsError] = useState(false);
+  const redirect = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -51,6 +54,15 @@ const Account = () => {
         <section className={outerAccount}>
           <div className={accountHeader}>
             <h2 className={h2}>Account</h2>
+            <button
+              className={logout}
+              onClick={() => {
+                localStorage.setItem("username", "");
+                setUser();
+              }}
+            >
+              Log out
+            </button>
           </div>
           <div className={account}>
             <Info user={user} />
