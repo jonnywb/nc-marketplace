@@ -1,0 +1,15 @@
+.primary {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: rgb(223, 114, 231);
+  box-shadow: 0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.4);
+  transition: 0.5s;
+  color: rgb(24, 24, 24);
+}
+
+.primary:hover {
+  background-color: rgb(229, 140, 234);
+  box-shadow: 0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 1);
+  transition: 0.5s;
+}

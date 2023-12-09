@@ -2,7 +2,9 @@ import { getItem, postToBasket } from "../../utils/utils";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../../../contexts/UserContext";
-import "./item.css";
+import { outerSection, sectionHeader } from "../../styles/Section.module.css";
+import { h2 } from "../../styles/Typography.module.css";
+import styles from "./Item.module.css";
 
 const Item = ({ basket }) => {
   const redirect = useNavigate();
@@ -28,7 +30,7 @@ const Item = ({ basket }) => {
 
   const renderBasket = () => {
     return (
-      <button className="item-basket-button" onClick={handleAddToBasket}>
+      <button className={styles.button} onClick={handleAddToBasket}>
         Add to basket
       </button>
     );
@@ -36,17 +38,21 @@ const Item = ({ basket }) => {
 
   const { item_name, img_url, description, price, category_name } = currItem;
   return (
-    <section id="item">
-      <h2>Item</h2>
-      <div className="item-grid">
-        <h3 className="item-header">{item_name}</h3>
-        <div className="item-img-div">
-          <img src={img_url} alt={description} />
+    <section id="item" className={outerSection}>
+      <div className={sectionHeader}>
+        <h2 className={h2}>Item</h2>
+      </div>
+      <div className={styles.lgGrid}>
+        <h3 className={styles.head}>{item_name}</h3>
+        <p className={styles.cat}>{category_name}</p>
+        <div className={styles.imgDiv}>
+          <img className={styles.img} src={img_url} alt={description} />
         </div>
-        <p className="item-desc">{description}</p>
-        <p className="item-price">£{(price / 100).toFixed(2)}</p>
-        <p className="item-category">{category_name}</p>
-        {user && renderBasket()}
+        <div className={styles.div}>
+          <p className={styles.desc}>{description}</p>
+          <p className={styles.price}>£{(price / 100).toFixed(2)}</p>
+          {user && renderBasket()}
+        </div>
       </div>
     </section>
   );

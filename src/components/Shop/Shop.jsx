@@ -2,7 +2,7 @@ import AddItem from "./AddItem/AddItem";
 import Item from "./Item/Item";
 import ShopList from "./ShopList/ShopList";
 import Basket from "./Basket/Basket";
-import "./shop.css";
+// import "./shop.css";
 import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getCategories } from "../utils/utils";

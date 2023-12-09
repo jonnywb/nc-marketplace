@@ -1,9 +1,9 @@
-import "./App.css";
-import Header from "./components/Header/Header";
-import Shop from "./components/Shop/Shop";
-import Account from "./components/Account/Account";
+import "./App.module.css";
+import Header from "../Header/Header";
+import Shop from "../Shop/Shop";
+import Account from "../Account/Account";
 import { Routes, Route } from "react-router-dom";
-import { UserProvider } from "./contexts/UserContext";
+import { UserProvider } from "../../contexts/UserContext";
 
 function App() {
   return (

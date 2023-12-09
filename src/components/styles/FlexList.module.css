@@ -1,0 +1,14 @@
+.filterBar {
+  padding: 0.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: 70vh;
+}

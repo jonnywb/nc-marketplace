@@ -1,33 +1,46 @@
 import { Link } from "react-router-dom";
-import "./shopCard.css";
+import { useNavigate } from "react-router-dom";
+import styles from "./ShopCard.module.css";
+import { primary } from "../../styles/Button.module.css";
 
 const ShopCard = ({ item, remove }) => {
   const { item_name, img_url, description, price, item_id } = item;
+  const redirect = useNavigate();
 
   const renderButton = () => {
     if (remove) {
       return (
-        <button className="remove-button" item_id={item_id} onClick={remove}>
+        <button className={primary} item_id={item_id} onClick={remove}>
           Remove
         </button>
       );
     }
 
     return (
-      <Link className="card-link-a" to={`/items/${item_id}`}>
-        <button>See more</button>
-      </Link>
+      <button
+        className={primary}
+        onClick={() => {
+          redirect(`/items/${item_id}`);
+        }}
+      >
+        See more
+      </button>
     );
   };
 
   return (
-    <li>
-      <h3 className="card-header">{item_name}</h3>
-      <div className="card-img-div">
-        <img src={img_url} />
+    <li
+      className={styles.item}
+      onClick={() => {
+        redirect(`/items/${item_id}`);
+      }}
+    >
+      <h3 className={styles.head}>{item_name}</h3>
+      <div className={styles.imgDiv}>
+        <img className={styles.img} src={img_url} />
       </div>
-      <p className="card-desc">{description}</p>
-      <p className="card-price">£{(price / 100).toFixed(2)}</p>
+      <p className={styles.desc}>{description}</p>
+      <p className={styles.price}>£{(price / 100).toFixed(2)}</p>
       {renderButton()}
     </li>
   );

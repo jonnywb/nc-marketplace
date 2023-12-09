@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { getUserByUsername } from "../utils/utils";
-import "./account.css";
+import styles from "./Account.module.css";
 
 const Account = () => {
   const { user, setUser } = useContext(UserContext);
@@ -42,7 +42,7 @@ const Account = () => {
   if (user) {
     const { username, avatar_url, kudos, items_in_basket, items_ordered } = user;
     return (
-      <section id="account">
+      <section className={styles.account}>
         <h2>Account</h2>
         <h3>Welcome, {username}!</h3>
         <img src={avatar_url} alt="your avatar" />
@@ -54,13 +54,19 @@ const Account = () => {
   }
 
   return (
-    <section id="login">
+    <section className={styles.login}>
       <h2>Account</h2>
-      <form onSubmit={handleSubmit}>
-        <label>Username</label>
-        <input name="username" value={usernameInput} onChange={handleChange} placeholder="username..." />
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <label className={styles.label}>Username</label>
+        <input
+          className={styles.input}
+          name="username"
+          value={usernameInput}
+          onChange={handleChange}
+          placeholder="username..."
+        />
 
-        <button>Log me in</button>
+        <button className={styles.button}>Log me in</button>
       </form>
     </section>
   );

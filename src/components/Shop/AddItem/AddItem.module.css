@@ -1,0 +1,38 @@
+.section {
+  composes: outerSection from "../../styles/Section.module.css";
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form {
+  padding-bottom: 4rem;
+  text-align: center;
+}
+
+.div {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.input {
+  width: 75%;
+  margin: 0;
+}
+
+.label {
+  margin: 1.5rem 0;
+  text-align: center;
+  width: 25%;
+}
+
+.select {
+  width: 75%;
+  margin: 0.5rem auto;
+  height: 3rem;
+}
+
+.button {
+  composes: primary from "../../styles/Button.module.css";
+  width: 20%;
+  margin-top: 2rem;
+}

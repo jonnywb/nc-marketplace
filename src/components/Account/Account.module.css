@@ -1,38 +1,45 @@
-#login {
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   background-color: #f8f8f8;
-  margin: 5vh auto;
+  margin: 0 auto;
   text-align: center;
-  width: 25vh;
+  width: 40vw;
+  max-width: 325px;
+  height: 30vh;
   border: 1px solid black;
   border-radius: 1rem;
-  padding: 2rem;
+  padding: 1rem;
   box-shadow: 0.3rem 10px 20px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  top: 7.5vh;
 }
 
-form {
+.form {
   display: flex;
   flex-direction: column;
 }
 
-form button {
-  border-radius: 0.7rem;
-  margin: 2vh auto;
-  width: 30%;
+.label {
+  font-weight: 600;
 }
 
-form input {
+.input {
   margin: 0 auto;
   height: 3rem;
   width: 70%;
 }
 
-form label {
-  font-weight: 600;
+.button {
+  border-radius: 0.7rem;
+  margin: 2vh auto;
+  width: 40%;
 }
 
 /*Account */
 
-#account {
+.account {
   background-color: #f8f8f8;
   width: 50%;
   margin: 0 auto;
@@ -40,7 +47,7 @@ form label {
   text-align: center;
 }
 
-#account img {
+.profileImg {
   width: 20%;
   border-radius: 50%;
   margin: 1rem;

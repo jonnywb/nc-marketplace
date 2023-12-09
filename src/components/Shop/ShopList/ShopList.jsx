@@ -1,8 +1,13 @@
 import ShopCard from "../ShopCard/ShopCard";
 import { useState, useEffect } from "react";
 import { getItems } from "../../utils/utils";
-import { Link } from "react-router-dom";
-import "./shoplist.css";
+import { h2 } from "../../styles/Typography.module.css";
+import { outerSection, sectionHeader } from "../../styles/Section.module.css";
+import { pageNumList } from "./shopList.module.css";
+import { pageNum as numCss } from "../../styles/Link.module.css";
+import { filterBar, list } from "../../styles/FlexList.module.css";
+import { primary } from "../../styles/Button.module.css";
+import { useNavigate } from "react-router-dom";
 
 const ShopList = ({ categories, setCategories }) => {
   const [items, setItems] = useState([]);
@@ -12,6 +17,8 @@ const ShopList = ({ categories, setCategories }) => {
     limit: 9,
     order: "asc",
   });
+
+  const redirect = useNavigate();
 
   const sortByOptions = {
     item_name: "Item Name",
@@ -74,13 +81,18 @@ const ShopList = ({ categories, setCategories }) => {
   };
 
   return (
-    <section id="shop-list">
-      <div className="section-header">
-        <h2>Shop</h2>
-        <div className="list-filters">
-          <Link className="link" to="/items/add-item">
+    <section className={outerSection}>
+      <div className={sectionHeader}>
+        <h2 className={h2}>Shop</h2>
+        <div className={filterBar}>
+          <button
+            className={primary}
+            onClick={() => {
+              redirect("/items/add-item");
+            }}
+          >
             Add a new item
-          </Link>
+          </button>
           <label>
             Filter by Category
             <select onChange={handleCategoryChange}>
@@ -114,16 +126,16 @@ const ShopList = ({ categories, setCategories }) => {
         </div>
       </div>
 
-      <ul className="item-list">
+      <ul className={list}>
         {items.map((item) => (
           <ShopCard key={item.item_id} item={item} />
         ))}
       </ul>
-      <div id="page-nums">
+      <div className={pageNumList}>
         <nav>
           {pageNums.map((pageNum, i) => {
             return (
-              <a index={i + 1} key={i} onClick={handlePageClick}>
+              <a className={numCss} index={i + 1} key={i} onClick={handlePageClick}>
                 {pageNum}
               </a>
             );

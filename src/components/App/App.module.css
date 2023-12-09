@@ -8,13 +8,18 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   background: rgb(209, 40, 47);
   background: linear-gradient(0deg, rgba(209, 40, 47, 1) 0%, rgba(125, 8, 152, 1) 48%, rgba(0, 255, 222, 1) 100%);
 }
 
 main {
+  padding: 1vh;
   background-color: rgba(248, 248, 248, 0.2);
+  min-height: 50vh;
+  width: 95%;
   max-width: 1200px;
   margin: 0 auto;
   border-radius: 0.4rem;

@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../../contexts/UserContext";
 import { deleteFromBasket, getBasketItems } from "../../utils/utils";
 import ShopCard from "../ShopCard/ShopCard";
-import "./basket.css";
+// import "./basket.css";
 
 const Basket = ({ basket, setBasket }) => {
   const { user } = useContext(UserContext);
